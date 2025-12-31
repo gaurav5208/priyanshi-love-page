@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Priyanshi ❤️</title>
+
+<style>
+body{
+    margin:0;
+    background: radial-gradient(circle at top,#2b0a1f,#0f0514);
+    font-family:'Segoe UI', sans-serif;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    overflow:hidden;
+}
+
+/* Card */
+.card{
+    width:90%;
+    max-width:400px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    border-radius:26px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 0 50px rgba(255,77,148,0.6);
+    position:relative;
+    animation: fadeIn 1.4s ease;
+}
+
+/* Glow Ring */
+.card::before{
+    content:"";
+    position:absolute;
+    inset:-4px;
+    border-radius:30px;
+    background: linear-gradient(45deg,#ff4d94,#ff99cc,#ff4d94);
+    z-index:-1;
+    filter:blur(12px);
+    animation: glow 4s infinite linear;
+}
+
+@keyframes glow{
+    0%{opacity:0.6}
+    50%{opacity:1}
+    100%{opacity:0.6}
+}
+
+h2{
+    color:#ff4d94;
+    margin-bottom:6px;
+}
+
+/* Typing */
+#typing{
+    font-size:1.1rem;
+    color:#ffd1e8;
+    min-height:28px;
+    margin-bottom:10px;
+}
+
+/* Text */
+p{
+    font-size:0.95rem;
+    line-height:1.6;
+    color:#f1f1f1;
+}
+
+/* Slider */
+.slider{
+    position:relative;
+    width:100%;
+    height:230px;
+    margin-top:16px;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.2s ease;
+}
+.slide.active{opacity:1}
+
+/* Ring */
+.ring{
+    font-size:40px;
+    margin-top:12px;
+    animation: ringPop 2s ease infinite alternate;
+}
+
+@keyframes ringPop{
+    from{transform:scale(1)}
+    to{transform:scale(1.2)}
+}
+
+/* Final */
+.final{
+    margin-top:12px;
+    font-size:1.1rem;
+    color:#ffb3d9;
+    opacity:0;
+    animation: showFinal 2s forwards;
+    animation-delay:10s;
+}
+
+@keyframes showFinal{
+    to{opacity:1}
+}
+
+/* Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff4d94;
+    animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+    to{transform:translateY(-120vh); opacity:0}
+}
+
+/* Fireworks */
+.firework{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:#ff4d94;
+    border-radius:50%;
+    animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode{
+    to{
+        transform:translate(var(--x),var(--y));
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.9)}
+    to{opacity:1; transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2c2f66b6a3.mp3">
+</audio>
+
+<div class="card">
+    <h2>Happy New Year ❤️</h2>
+
+    <div id="typing"></div>
+
+    <p>
+        Dear <b>Priyanshi</b>,<br><br>
+        You are my today, my tomorrow,  
+        and every dream in between.  
+        This year and every year after,  
+        I choose you — always. 💖
+    </p>
+
+    <div class="slider">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" class="slide active">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" class="slide">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" class="slide">
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70" class="slide">
+    </div>
+
+    <div class="ring">💍</div>
+
+    <div class="final">✨ Forever Us — Rohit & Priyanshi ✨</div>
+</div>
+
+<script>
+// Typing
+const text = "Priyanshi ❤️ Rohit — Made for each other";
+let i=0;
+const typing=document.getElementById("typing");
+(function type(){
+    if(i<text.length){
+        typing.innerHTML+=text.charAt(i++);
+        setTimeout(type,80);
+    }
+})();
+
+// Slider
+let index=0;
+const slides=document.querySelectorAll(".slide");
+setInterval(()=>{
+    slides[index].classList.remove("active");
+    index=(index+1)%slides.length;
+    slides[index].classList.add("active");
+},2500);
+
+// Hearts
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(14+Math.random()*20)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},700);
+
+// Fireworks
+setInterval(()=>{
+    const f=document.createElement("div");
+    f.className="firework";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*100+"vh";
+    f.style.setProperty("--x",(Math.random()*200-100)+"px");
+    f.style.setProperty("--y",(Math.random()*200-100)+"px");
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
+},900);
+</script>
+
+</body>
+</html>
